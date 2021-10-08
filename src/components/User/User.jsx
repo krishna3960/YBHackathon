@@ -1,11 +1,26 @@
 import "./User.scss";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import axios from "axios";
 
 function User() {
     const [searchName, setSearchName] = useState("");
     const [searchLocation, setSearchLocation] = useState("");
     const [searchQuantity, setSearchQuantity] = useState("");
     const [searchPrice, setSearchPrice] = useState("");
+    
+    const axios = require('axios').default;
+
+    const [fetchedData, setFetchedData] = useState([]);
+    useEffect(()=>{
+        const getData = async () => {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            setFetchedData(response.data);
+        };
+        getData();
+    }, []);
+
+    console.log('asd', fetchedData);
+    
     
     const provider_data = [
         { 
@@ -52,6 +67,10 @@ function User() {
         },
         
     ]
+
+    
+
+   
  
     return (
         <div className="userpage">
@@ -94,15 +113,16 @@ function User() {
                         </div>
                     </div>
                     <div className="items">
-                       {provider_data.filter((data)=>
+                       {fetchedData.filter((data)=>
                            (!searchLocation || data.location.toLowerCase().includes(searchLocation.toLowerCase())) &&
                            (!searchPrice || data.price < searchPrice) &&
                            (!searchName || data.username.toLowerCase().includes(searchName.toLowerCase())) &&
                            (!searchQuantity || data.quantity > searchQuantity))
-                            .map((p) => (
-                            <div className="item">
+                            .slice(0, 7).map((p) => (
+                            <div className="item" key = {p.id}>
                             <div className="username">
                                 <p>{p.username}</p>
+                                
                             </div>
                             <div className="location">
                             <p> {p.location}</p>
