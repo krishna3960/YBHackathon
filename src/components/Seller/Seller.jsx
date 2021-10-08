@@ -1,5 +1,7 @@
 import "./Seller.scss";
 
+const axios = require('axios').default;
+
 function Seller(){
     return (
         <div className="seller">
@@ -53,7 +55,7 @@ function Seller(){
                             </div>
                             
                             <div className="button">
-                                <button>Sell</button>
+                                <button onClick>Sell</button>
                             </div>
                         </form>
                     </div>

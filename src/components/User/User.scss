@@ -1,5 +1,6 @@
 .userpage {
-    height: 100vh;
+    background: linear-gradient(yellow, black);
+    overflow-x: hidden;
 
     .toppart {
         height: 100px;
@@ -10,7 +11,6 @@
         
 
         .title {
-            height: 50%;
             margin-top: 10px;
             display: flex;
             justify-content: center;
@@ -21,12 +21,14 @@
     }
 
     .bottompart {
-        background-color: cornsilk;
-        width: 100%;
+        width: 80%;
+        background-color: yellow;
+        margin-left : 10%;
+        border-radius: 10px;
 
         .itemcontainer {
             margin : 10px 10px ;
-            height: 100%;
+            
             h3{
                 font-size: 24px;
                 text-align: center;
@@ -39,9 +41,9 @@
                 width: inherit;
                 height: 30px;
                 padding: 15px 0px;
+                overflow: hidden;
 
                 .searchbox {
-                    background-color: lightcoral;
                     height: 40px;
                     width: 100%;
                 }
@@ -49,49 +51,50 @@
 
             .items {
                 width: 80%;
-                height: 75%;
+                height: 450px;
                 margin-left: 10%;
                 font-size: 24px;
                 display: flex;
                 flex-direction: column;
 
                 .item {
-                    width: 100%;
-                    height: 40px;
-                    padding: 10px 15px;
+                    width: 25%;
+                    height: 200;
+                    margin: 10px 15px;
                     display : flex;
-                    
-                align-items: center;
-                justify-content: space-between;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
                     
                     border: 1px solid black;
                     border-radius: 10px;
 
-                    .username {
-                        height: 100%;
-                        width: 40%;
-                    }
+                    
                     .location {
-                        height: 100%;
-                        width: 15%;
-                        padding-left: 10px;
+                        height: 30px;
+                        width: 100%;
+                        text-align: center;
+                        border-bottom: 1px solid black;
+                       
                     }
                     .kw {
-                        height: 100%;
-                        width: 10%;
+                        height: 30px;
+                        width: 100%;
+                        text-align: center;
+                       
                     }
                     .price {
-                        height: 100%;
-                        width: 10%;
+                        height: 30px;
+                        width: 100%;
+                        text-align: center;
                     }
 
                     .submit {
                         display: flex;
                         text-align: center;
                         justify-content: center;
-                        height: 100%;
-                        width: 10%;
-                        background-color: coral;
+                        height: 30px;
+                        width: 100%;
 
                         button {
                             width: 60px;

@@ -4,15 +4,15 @@ function Topbar() {
     return (
     <div className="topbar">
         <div className="left">
-            <img src="inpeek\public\images\inpeek_logo_blau.png"/>
+            <img src="https://www.postparc.ch/wp-content/uploads/2018/01/inpeek.jpg" alt = "logo"/>
 
         </div>
         <div className="right">
             <div className="navbar">
-                <h2>Home</h2>
-                <h2>User page</h2>
-                <h2>Admin page</h2>
-                <h2>Contact</h2>
+                <h2><a href = "#Home">Home</a></h2>
+                <h2><a href = "#User">User page </a></h2>
+                <h2><a href = "#Seller">Admin page </a></h2>
+               
             </div>
 
         </div>

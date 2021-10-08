@@ -5,7 +5,7 @@ function Home() {
         <div className="home">
             <div className="higherpart">
                 <div className="logo">
-                    <img src="" alt="" />
+                    <img src="https://www.postparc.ch/wp-content/uploads/2018/01/inpeek.jpg" alt="" />
                 </div>
             </div>
             <div className="bottompart">

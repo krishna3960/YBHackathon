@@ -13,61 +13,16 @@ function User() {
     const [fetchedData, setFetchedData] = useState([]);
     useEffect(()=>{
         const getData = async () => {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            const response = await axios.get('https://patentyb.azurewebsites.net/api/energyRessource/allOffers');
             setFetchedData(response.data);
         };
         getData();
     }, []);
 
-    console.log('asd', fetchedData);
+    console.log(fetchedData);
     
     
-    const provider_data = [
-        { 
-            id : 1 ,
-            username : "Seyed",
-            location : "Biel",
-            quantity : 10,
-            price : 150,
-        },
-        {
-            id : 2 ,
-            username : "Krishna",
-            location : "Fribourg",
-            quantity : 20,
-            price : 250 ,
-        },
-        { 
-            id : 1 ,
-            username : "Seyed",
-            location : "Biel",
-            quantity : 10,
-            price : 150,
-        },
-        {
-            id : 2 ,
-            username : "Krishna",
-            location : "Fribourg",
-            quantity : 20,
-            price : 250 ,
-        },
-        { 
-            id : 1 ,
-            username : "Seyed",
-            location : "Biel",
-            quantity : 10,
-            price : 150,
-        },
-        {
-            id : 2 ,
-            username : "Krishna",
-            location : "Fribourg",
-            quantity : 20,
-            price : 250 ,
-        },
-        
-    ]
-
+ 
     
 
    
@@ -120,18 +75,15 @@ function User() {
                            (!searchQuantity || data.quantity > searchQuantity))
                             .slice(0, 7).map((p) => (
                             <div className="item" key = {p.id}>
-                            <div className="username">
-                                <p>{p.username}</p>
-                                
-                            </div>
+                            
                             <div className="location">
                             <p> {p.location}</p>
                             </div>
                             <div className="kw">
-                            <p> {p.quantity} KW</p>
+                            <p> {p.productionDaySunnykWh} KW</p>
                             </div>
                             <div className="price">
-                            <p> {p.price}</p>
+                            <p> {p.pricekWh} CHF</p>
                             </div>
                             <div className="submit">
                                 <button> BUY </button>        
