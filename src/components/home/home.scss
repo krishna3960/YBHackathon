@@ -1,0 +1,60 @@
+.home {
+    color: black;
+ 
+    width: 100%;
+    min-height: 100%;
+
+    .higherpart {
+        height: 70%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        
+
+        .logo {
+            background-color: burlywood;
+            height: 400px;
+            width: 400px;
+            justify-content: center;
+            
+            margin-top: 100px;
+            border-radius: 50%;
+        }
+    }
+    .bottompart {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        .textbox {
+            width: 60%;
+            margin-top: 15px;
+            
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            border-radius: 5px;
+            
+            
+
+            .title {
+                justify-content: center;
+                
+                height: 50px;
+                h3 {
+                    margin-top : 15px;
+                } 
+            }
+            .description {
+                
+                margin-top: 15px;
+                height: 200px;
+
+                p{
+                    width: 90%;
+                    margin-left: 5%;
+                }
+            }
+        }
+    }
+}
