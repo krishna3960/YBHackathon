@@ -2,7 +2,7 @@ import "./User.scss";
 import {useState, useEffect} from 'react';
 import axios from "axios";
 
-function User() {
+function User({balance, setBalance}) {
     const [searchName, setSearchName] = useState("");
     const [searchLocation, setSearchLocation] = useState("");
     const [searchQuantity, setSearchQuantity] = useState("");
@@ -83,10 +83,12 @@ function User() {
                             <p> {p.productionDaySunnykWh} KW</p>
                             </div>
                             <div className="price">
-                            <p> {p.pricekWh} CHF</p>
+                            <p> {p.pricekWh} IPT</p>
                             </div>
                             <div className="submit">
-                                <button> BUY </button>        
+                                <button onClick = {() => {
+                                    setBalance(balance-p.pricekWh)
+                                }}> BUY </button>        
                             </div>
                         </div>
                     

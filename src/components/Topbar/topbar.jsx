@@ -1,6 +1,9 @@
-import "./topbar.scss"
+import "./topbar.scss";
+import {useState} from "react";
 
-function Topbar() {
+
+function Topbar({walletOpen, setWalletOpen}) {
+    
     return (
     <div className="topbar">
         <div className="left">
@@ -12,8 +15,16 @@ function Topbar() {
                 <h2><a href = "#Home">Home</a></h2>
                 <h2><a href = "#User">User page </a></h2>
                 <h2><a href = "#Seller">Admin page </a></h2>
+                <h2><a href = "Seller" >Login</a></h2>
+                <div className="walletbox" onClick = {()=>setWalletOpen(!walletOpen)}>
+                    wallet
+                </div>
+                
+                
+                
                
             </div>
+            
 
         </div>
     </div>

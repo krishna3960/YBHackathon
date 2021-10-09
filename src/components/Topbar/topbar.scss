@@ -10,7 +10,7 @@
     transition: all 1s ease;
 
     .left {
-        width: 20%;
+        flex: 0.2;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -24,8 +24,7 @@
     }
 
     .right {
-        width: 70%;
-        margin-left: 250px;
+        flex: 0.3;
         .navbar {
             width: 100%;
             display: flex;
@@ -40,8 +39,25 @@
             cursor: pointer;
             font-size: 20px;
             font-weight: 200;
+            
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
 
         }
+        .walletbox {
+            width: 70px;
+            height: 40px;
+            position: relative;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            overflow : hidden;
+            cursor: pointer;
+        }
+
+        
         }
     }
 }
