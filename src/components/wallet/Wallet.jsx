@@ -8,7 +8,7 @@ function Wallet({walletOpen, setWalletOpen, balance, setBalance, kWh, setkWh}) {
             </div>
             <div className="middlepart">
             <p>{balance} IPT</p>
-            <p>{kWh} KW available</p>
+            <p>{kWh} KW </p>
             </div>
             <div className="bottompart">
                 <div className="button">

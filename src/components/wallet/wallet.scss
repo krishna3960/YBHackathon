@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .wallet {
     width: 250px;
     height: 350px;
@@ -13,6 +15,9 @@
     text-align: center;
     justify-content: center;
     transition: all 1s ease;
+    
+    font-family: 'Raleway', sans-serif; 
+    
 
 
     &.active {
@@ -42,7 +47,7 @@
 
         p{
             margin-top: 25px;
-            font-size: 32px;
+            font-size: 28px;
         }
     }
 

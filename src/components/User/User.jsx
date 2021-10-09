@@ -6,7 +6,7 @@ function User({balance, setBalance, post, setPost, kWh, setkWh}) {
     const [searchLocation, setSearchLocation] = useState("");
     const [searchQuantity, setSearchQuantity] = useState("");
     const [searchPrice, setSearchPrice] = useState("");
-    const [sunny, setSunny] = useState(true);
+    const [sunny, setSunny] = useState(false);
     
     const axios = require('axios').default;
 
@@ -76,7 +76,7 @@ function User({balance, setBalance, post, setPost, kWh, setkWh}) {
                        {fetchedData.filter((data)=>
                            (!searchLocation || data.location.toLowerCase().includes(searchLocation.toLowerCase())) &&
                            (!searchPrice || data.pricekWh <= searchPrice) &&
-                           (!searchQuantity || data.quantity > searchQuantity))
+                           sunny ? (!searchQuantity || data.productionDayRainnykWh >= searchQuantity) : (!searchQuantity || data.productionDaySunnykWh>=searchQuantity) )
                             .slice(0, 5).map((p) => (
                             <div className="item" key = {p.id}>
                             
@@ -84,7 +84,7 @@ function User({balance, setBalance, post, setPost, kWh, setkWh}) {
                                 <p> {p.location}</p>
                                 </div>
                                 <div className="kw">
-                                <p> {sunny ? p.productionDaySunnykWh :p.productionDayRainnykWh } 
+                                <p> {sunny ? p.productionDayRainnykWh :  p.productionDaySunnykWh} 
                                     KW</p>
                                 </div>
                                 <div className="price">
