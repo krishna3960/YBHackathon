@@ -76,7 +76,7 @@ function User({balance, setBalance, post, setPost, kWh, setkWh}) {
                        {fetchedData.filter((data)=>
                            (!searchLocation || data.location.toLowerCase().includes(searchLocation.toLowerCase())) &&
                            (!searchPrice || data.pricekWh <= searchPrice) &&
-                           sunny ? (!searchQuantity || data.productionDayRainnykWh >= searchQuantity) : (!searchQuantity || data.productionDaySunnykWh>=searchQuantity) )
+                           (sunny ? (!searchQuantity || data.productionDayRainnykWh >= searchQuantity) : (!searchQuantity || data.productionDaySunnykWh>=searchQuantity)))
                             .slice(0, 5).map((p) => (
                             <div className="item" key = {p.id}>
                             
