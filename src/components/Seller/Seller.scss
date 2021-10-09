@@ -18,7 +18,6 @@
         display: flex;
         flex-direction: column;
         border-radius: 10px;
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     .toppart {
 
         height: 150px;
@@ -37,7 +36,7 @@
     }
 
     .bottompart {
-        height: 500px;
+        height: 400px;
         width: 100%;
         font-size: 26px;
         
@@ -55,7 +54,7 @@
                 flex-direction: column;
                 text-align: center;
                 justify-content: center;
-                height: 100%;
+                height: 80%;
                 margin-top: 15px;
                 z-index: 5;
                 
@@ -64,9 +63,7 @@
                     display: flex;
                     text-align: center;
                     justify-content: center;
-                    height: 80px;
-                    
-                    overflow: hidden;
+                    height: 50px;
 
                     label {
                         font-size: 16px;
@@ -93,10 +90,8 @@
                             height: 30px;
                         }
                     }
-
-                    .checkboxes {
-
-                    }
+                }
+                    
 
     
                     
@@ -105,16 +100,17 @@
                     display: flex;
                     text-align: center;
                     justify-content: center;
+                    
                     height: 40px;
                     width: 100%;
                     button {
                     width: 80px;
                     height: 40px;
+                    
                     }
-            }
+                }
             }
         }
 
     }
-}
 }

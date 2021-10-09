@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .topbar {
     
+    font-family: 'Raleway', sans-serif;
     position: fixed;
     top: 0;
     height: 70px;
@@ -8,23 +11,27 @@
     display: flex;
     z-index: 3;
     transition: all 1s ease;
+    
 
     .left {
         flex: 0.2;
         display: flex;
         text-align: center;
         justify-content: center;
+        overflow: hidden;
         img {
-            height: 60px;
+            height: 55px;
             width: 80px;
             margin-top: 10px;
             margin-left: 10%;
             cursor: pointer;
+            
         }
     }
 
     .right {
-        flex: 0.3;
+        flex: 0.6;
+        float: right;
         .navbar {
             width: 100%;
             display: flex;
@@ -53,8 +60,19 @@
             display: flex;
             text-align: center;
             justify-content: center;
+            border-radius: 15px;
             overflow : hidden;
             cursor: pointer;
+            font-size: 20px;
+
+            &.active {
+                background: linear-gradient(white, grey);
+                p{
+                    margin-top: 5px;
+                }
+                
+            }
+           
         }
 
         

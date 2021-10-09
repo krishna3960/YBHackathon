@@ -10,20 +10,22 @@ import { useState } from 'react';
 function App() {
   
   const [walletOpen, setWalletOpen] = useState(false);
-  const [balance, setBalance] = useState(100);
+  const [balance, setBalance] = useState(1000);
+  const[kWh, setkWh] = useState(0);
+  const [post, setPost] = useState(false);
   return (
     <div className="App">
       
       <Topbar walletOpen={walletOpen} setWalletOpen = {setWalletOpen}/>
-      <Wallet walletOpen = {walletOpen} setWalletOpen = {setWalletOpen} balance = {balance} setBalance = {setBalance}/>
+      <Wallet walletOpen = {walletOpen} setWalletOpen = {setWalletOpen} balance = {balance} setBalance = {setBalance} kWh = {kWh} setkWh = {setkWh}/>
 
 
       <div className = "sections">
 
       <Landingpage/>
        <Home/>
-       <User  balance = {balance} setBalance = {setBalance}/>
-       <Seller/>
+       <User  balance = {balance} setBalance = {setBalance} post = {post} setPost={setPost} kWh = {kWh} setkWh = {setkWh}/>
+       <Seller post = {post} setPost={setPost}/>
 
        </div>
         

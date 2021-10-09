@@ -2,7 +2,7 @@ import "./home.scss";
 
 function Home() {
     return(
-        <div className="home">
+        <div className="home" id = "Home">
             <div className="higherpart">
                 <div className="logo">
                     <img src="https://www.postparc.ch/wp-content/uploads/2018/01/inpeek.jpg" alt="" />

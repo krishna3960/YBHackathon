@@ -1,6 +1,6 @@
 import "./wallet.scss";
 
-function Wallet({walletOpen, setWalletOpen, balance, setBalance}) {
+function Wallet({walletOpen, setWalletOpen, balance, setBalance, kWh, setkWh}) {
     return (
         <div className={"wallet " + (walletOpen && "active")}>
             <div className="toppart">
@@ -8,7 +8,7 @@ function Wallet({walletOpen, setWalletOpen, balance, setBalance}) {
             </div>
             <div className="middlepart">
             <p>{balance} IPT</p>
-            <p>35 KW available</p>
+            <p>{kWh} KW available</p>
             </div>
             <div className="bottompart">
                 <div className="button">

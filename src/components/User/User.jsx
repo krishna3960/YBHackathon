@@ -2,11 +2,11 @@ import "./User.scss";
 import {useState, useEffect} from 'react';
 import axios from "axios";
 
-function User({balance, setBalance}) {
-    const [searchName, setSearchName] = useState("");
+function User({balance, setBalance, post, setPost, kWh, setkWh}) {
     const [searchLocation, setSearchLocation] = useState("");
     const [searchQuantity, setSearchQuantity] = useState("");
     const [searchPrice, setSearchPrice] = useState("");
+    const [sunny, setSunny] = useState(true);
     
     const axios = require('axios').default;
 
@@ -17,7 +17,7 @@ function User({balance, setBalance}) {
             setFetchedData(response.data);
         };
         getData();
-    }, []);
+    }, [post]);
 
     console.log(fetchedData);
     
@@ -28,11 +28,10 @@ function User({balance, setBalance}) {
    
  
     return (
-        <div className="userpage">
+        <div className="userpage" id ="User">
             <div className="toppart">
                 <div className="title">
-                    <h1>Green E-buy</h1>
-                    <p>First peer to peer Energy Marketplace</p>
+                    <h1>Buy Energy</h1>
                 </div>
 
             </div>
@@ -42,12 +41,6 @@ function User({balance, setBalance}) {
                 <h3>Filter your search</h3>
                     <div className="searchbar">
                         
-                        <div className="searchbox">
-                            <p>Name</p>
-                            <input type ="text" placeholder = "search for a name" onChange = {(event) => {setSearchName(event.target.value)}}/>
-
-
-                        </div>
                         <div className="searchbox">
                             <p>Location</p>
                             <input type="text" 
@@ -66,30 +59,45 @@ function User({balance, setBalance}) {
                             placeholder ="search your price" onChange = {(event) => {setSearchPrice(event.target.value)}}
                             />      
                         </div>
+                        <div className="slider">
+                            <p>Sunny</p>
+                            <div className="outline">
+                                <div className={"circle " + (sunny && " rain")} onClick = {() =>  {
+                                        setSunny(!sunny);
+                                }}>
+
+                                </div>
+                            </div>
+                            <p>Rainy</p>
+                        </div>
+
                     </div>
                     <div className="items">
                        {fetchedData.filter((data)=>
                            (!searchLocation || data.location.toLowerCase().includes(searchLocation.toLowerCase())) &&
-                           (!searchPrice || data.price < searchPrice) &&
-                           (!searchName || data.username.toLowerCase().includes(searchName.toLowerCase())) &&
+                           (!searchPrice || data.pricekWh <= searchPrice) &&
                            (!searchQuantity || data.quantity > searchQuantity))
-                            .slice(0, 7).map((p) => (
+                            .slice(0, 5).map((p) => (
                             <div className="item" key = {p.id}>
                             
-                            <div className="location">
-                            <p> {p.location}</p>
-                            </div>
-                            <div className="kw">
-                            <p> {p.productionDaySunnykWh} KW</p>
-                            </div>
-                            <div className="price">
-                            <p> {p.pricekWh} IPT</p>
-                            </div>
-                            <div className="submit">
-                                <button onClick = {() => {
-                                    setBalance(balance-p.pricekWh)
-                                }}> BUY </button>        
-                            </div>
+                                <div className="location">
+                                <p> {p.location}</p>
+                                </div>
+                                <div className="kw">
+                                <p> {sunny ? p.productionDaySunnykWh :p.productionDayRainnykWh } 
+                                    KW</p>
+                                </div>
+                                <div className="price">
+                                <p> {p.pricekWh} IPT</p>
+                                </div>
+                                <div className="submit">
+                                    <button onClick = {() => {
+                                        (balance-p.pricekWh) > 0 ?
+                                        setBalance(balance-p.pricekWh) : console.log("insuffisent fund");
+                                        (sunny && (balance-p.pricekWh)>0 ) ? setkWh(kWh+p.productionDaySunnykWh) : console.log("insuffiscient fund");
+                                        (!sunny && (balance-p.pricekWh)>0) ? setkWh(kWh+p.productionDayRainnykWh) : console.log("insuffiscient fund")
+                                    }}> BUY </button>        
+                                </div>
                         </div>
                     
                     ))}

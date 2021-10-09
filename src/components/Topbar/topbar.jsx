@@ -7,17 +7,17 @@ function Topbar({walletOpen, setWalletOpen}) {
     return (
     <div className="topbar">
         <div className="left">
-            <img src="https://www.postparc.ch/wp-content/uploads/2018/01/inpeek.jpg" alt = "logo"/>
+            <a href ="#contaianer"><img src="https://www.postparc.ch/wp-content/uploads/2018/01/inpeek.jpg" alt = "logo"/></a>
 
         </div>
         <div className="right">
             <div className="navbar">
-                <h2><a href = "#Home">Home</a></h2>
-                <h2><a href = "#User">User page </a></h2>
-                <h2><a href = "#Seller">Admin page </a></h2>
-                <h2><a href = "Seller" >Login</a></h2>
-                <div className="walletbox" onClick = {()=>setWalletOpen(!walletOpen)}>
-                    wallet
+                <h2><a href ="#contaianer">Home</a></h2>
+                <h2><a href = "#Home">About us</a></h2>
+                <h2><a href = "#User">Buy </a></h2>
+                <h2><a href = "#Seller">Sell </a></h2>
+                <div className={"walletbox " + (walletOpen && "active")} onClick = {()=>setWalletOpen(!walletOpen)}>
+                   <p> Wallet </p>
                 </div>
                 
                 
