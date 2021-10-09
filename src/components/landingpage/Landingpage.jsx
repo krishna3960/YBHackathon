@@ -11,7 +11,7 @@ function Landingpage(){
             <div class="p3" data-speed="0.01"></div>
             <div class="word" data-speed="0">
                 <h1>inpeek</h1>
-             
+
             </div>
           </section>
         </div>
